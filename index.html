@@ -2,30 +2,56 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wavelength, Frequency & Photon Energy Study Guide</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Madison's Wavelength, Frequency & Photon Energy Study Guide</title>
 <style>
-:root{--bg:#f4f7fb;--card:#fff;--text:#182230;--muted:#5c6878;--accent:#315f9b;--light:#eaf1fb;--border:#d5dde8;--green:#23764c}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
-.wrap{max-width:1000px;margin:auto;padding:24px 16px 50px} h1{margin-bottom:5px}.sub{color:var(--muted);margin-top:0}
+:root{--bg:#f4f7fb;--card:#fff;--text:#182230;--muted:#5c6878;--accent:#315f9b;--light:#eaf1fb;--border:#d5dde8;--green:#23764c;--gold:#a66a00}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
+.wrap{max-width:1000px;margin:auto;padding:24px 16px 50px}
+h1{margin:0 0 5px;font-size:clamp(1.7rem,5vw,2.3rem)}
+h2{font-size:1.35rem} h3{font-size:1.08rem}
+.sub{color:var(--muted);margin-top:0}
 .card,details{background:var(--card);border:1px solid var(--border);border-radius:14px;margin:14px 0}
-.card{padding:20px} details{overflow:hidden} summary{padding:16px 18px;font-weight:800;font-size:1.05rem;cursor:pointer;background:#fafbfd}.inside{padding:2px 18px 18px}
-.formula{font-family:Georgia,serif;font-size:1.18rem;background:#f1f4f8;border-radius:8px;padding:12px;margin:10px 0}
-.meaning{display:grid;grid-template-columns:100px 1fr;gap:6px;margin:10px 0}.symbol{font-weight:bold;font-size:1.1rem}
+.card{padding:20px} details{overflow:hidden}
+summary{padding:17px 18px;font-weight:800;font-size:1.05rem;cursor:pointer;background:#fafbfd}
+.inside{padding:2px 18px 18px}
+.formula{font-family:Georgia,"Times New Roman",serif;font-size:1.18rem;background:#f1f4f8;border-radius:8px;padding:12px;margin:10px 0;overflow-x:auto}
+.meaning{display:grid;grid-template-columns:100px 1fr;gap:6px;margin:10px 0}
+.symbol{font-weight:bold;font-size:1.1rem}
 .rule{background:var(--light);border-left:4px solid var(--accent);padding:11px 14px;margin:10px 0}
 .inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-label{display:block;font-weight:bold;margin-bottom:5px}input{width:100%;padding:11px;border:1px solid #aeb8c6;border-radius:8px;font-size:16px}
-button{padding:11px 16px;border:0;border-radius:8px;font-weight:bold;font-size:15px;cursor:pointer;margin:12px 8px 0 0}.primary{background:var(--accent);color:white}.secondary{background:#e8ecf2}
+label{display:block;font-weight:bold;margin-bottom:5px}
+input,select{width:100%;padding:13px;border:1px solid #aeb8c6;border-radius:9px;font-size:16px;background:white}
+button{padding:13px 17px;border:0;border-radius:9px;font-weight:bold;font-size:16px;cursor:pointer;margin:12px 8px 0 0;min-height:46px}
+.primary{background:var(--accent);color:white}.secondary{background:#e8ecf2}
 .result{margin-top:16px;padding:16px;background:var(--light);border-left:5px solid var(--accent);border-radius:8px}
 .answer{font-weight:bold;font-size:1.1rem}.good{color:var(--green);font-weight:bold}.small{font-size:.9rem;color:var(--muted)}
+.locked{background:#f5f5f5;color:#444;font-weight:bold}
+.element-info{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.element-card,.spectrum-card{border:1px solid var(--border);border-radius:12px;padding:15px;background:#fff}
+.element-symbol{font-size:2.6rem;font-weight:900;line-height:1}.element-name{font-size:1.25rem;font-weight:800}
+.spectrum{height:28px;border-radius:8px;margin:12px 0;background:linear-gradient(to right,#6b00ff 0%,#245cff 12%,#00aaff 25%,#00d86a 40%,#ffe900 58%,#ff9a00 72%,#ff2b1f 86%,#7b0000 100%);position:relative}
+.marker{position:absolute;top:-7px;width:3px;height:42px;background:#111;border-radius:2px}
+.marker-label{position:absolute;top:40px;transform:translateX(-50%);font-size:.78rem;font-weight:bold;white-space:nowrap}
+.range-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-top:20px}
+.line-buttons{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.line-btn{margin:0;min-height:42px;padding:9px 12px;background:#eef2f7;border:1px solid var(--border)}
+.line-btn.selected{background:var(--accent);color:#fff}
+.notice{background:#fff7e6;border-left:5px solid #d59a2a;padding:12px 14px;border-radius:7px;margin:12px 0}
 table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid var(--border);padding:9px;text-align:left}th{background:#f1f4f8}
-@media(max-width:600px){.meaning{grid-template-columns:70px 1fr}}
+@media(max-width:600px){
+ .wrap{padding:18px 12px 40px}.card{padding:16px} .inside{padding:2px 14px 16px}
+ .meaning{grid-template-columns:62px 1fr}.formula{font-size:1.1rem}
+ .element-info{grid-template-columns:1fr}.line-buttons{display:grid;grid-template-columns:1fr 1fr}
+ .line-btn{width:100%} summary{padding:16px 14px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <h1>Wavelength, Frequency & Photon Energy</h1>
-<p class="sub">Learn the formulas first, then use the calculator to check your own work.</p>
+<p class="sub">Learn the formulas first, then explore atomic emission and check your own work.</p>
 
 <div class="card">
 <h2>What you need to know</h2>
@@ -52,7 +78,6 @@ table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid v
 </div>
 <p>If you need frequency, rearrange the formula:</p>
 <div class="formula"><strong>f = c/λ</strong></div>
-
 <h3>Planck's equation</h3>
 <div class="formula"><strong>E = hf</strong></div>
 <div class="meaning">
@@ -73,39 +98,71 @@ table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid v
 <div class="formula"><strong>1 nm = 1 × 10<sup>−9</sup> m</strong></div>
 <p>So multiply the wavelength in nm by 1 × 10<sup>−9</sup>:</p>
 <div class="formula"><strong>λ(m) = λ(nm) × 1 × 10<sup>−9</sup></strong></div>
-<p><strong>Example structure using any number x:</strong></p>
 <div class="formula">x nm × (1 × 10<sup>−9</sup> m / 1 nm) = x × 10<sup>−9</sup> m</div>
-<div class="rule"><strong>Important:</strong> The nm units cancel, leaving meters. This is why the conversion factor is written as a fraction.</div>
+<div class="rule"><strong>Important:</strong> The nm units cancel, leaving meters.</div>
 </div>
 </details>
 
 <details>
 <summary>Step 2 — Calculate frequency</summary>
 <div class="inside">
-<p>Start with the formula in its theory form:</p>
 <div class="formula"><strong>c = fλ</strong></div>
 <p>We want frequency, so solve for <strong>f</strong>:</p>
 <div class="formula"><strong>f = c/λ</strong></div>
-<p>Now use the actual numbers:</p>
-<div class="formula">
-<strong>f = (3.00 × 10<sup>8</sup> m/s) ÷ (your wavelength in meters)</strong>
-</div>
-<p>After entering a wavelength above, the calculator will show the complete numerical substitution for you.</p>
-<div class="rule"><strong>Units check:</strong> (m/s) ÷ m = 1/s, which is the same as Hz.</div>
+<div class="formula"><strong>f = (3.00 × 10<sup>8</sup> m/s) ÷ (your wavelength in meters)</strong></div>
+<div class="rule"><strong>Units check:</strong> (m/s) ÷ m = 1/s = Hz.</div>
 </div>
 </details>
 
 <details>
 <summary>Step 3 — Calculate photon energy</summary>
 <div class="inside">
-<p>Start with Planck's equation:</p>
 <div class="formula"><strong>E = hf</strong></div>
-<p>Now substitute the known value of Planck's constant and your calculated frequency:</p>
-<div class="formula">
-<strong>E = (6.63 × 10<sup>−34</sup> J·s) × (your frequency in Hz)</strong>
-</div>
-<p>The calculator will insert your actual frequency and show the numerical calculation.</p>
+<div class="formula"><strong>E = (6.63 × 10<sup>−34</sup> J·s) × (your frequency in Hz)</strong></div>
 <div class="rule"><strong>Units check:</strong> J·s × 1/s = J.</div>
+</div>
+</details>
+
+<details>
+<summary>Explore the Elements — Atomic Emission</summary>
+<div class="inside">
+<p>Select an element to see representative emission lines. These are <strong>characteristic spectral lines</strong>, not the only wavelengths an atom can emit.</p>
+<div class="inputs">
+<div>
+<label for="elementSelect">Element</label>
+<select id="elementSelect" onchange="selectElement()"></select>
+</div>
+<div>
+<label for="lineSelect">Emission line</label>
+<select id="lineSelect" onchange="selectLine()"></select>
+</div>
+</div>
+<div class="element-info">
+<div class="element-card" id="elementCard"></div>
+<div class="spectrum-card">
+<strong>Where is this wavelength on the electromagnetic spectrum?</strong>
+<div class="spectrum" id="spectrumBar"></div>
+<div class="range-labels"><span>Violet</span><span>Blue</span><span>Green</span><span>Yellow</span><span>Red</span></div>
+<p id="spectrumText" class="small"></p>
+</div>
+</div>
+<div id="emissionResult" class="result"></div>
+<div class="notice"><strong>Important chemistry idea:</strong> When an excited atom drops from a higher energy level to a lower one, it can emit a photon. The photon's wavelength identifies the energy of that transition.</div>
+</div>
+</details>
+
+<details>
+<summary>Interactive calculator — use any wavelength</summary>
+<div class="inside">
+<p>Enter a wavelength in nanometers. The constants below are <strong>fixed</strong> because they are physical constants, not values you choose.</p>
+<div class="inputs">
+<div><label for="nm">Wavelength (nm)</label><input id="nm" type="number" step="any" value="500"></div>
+<div><label for="c">Speed of light, c (m/s)</label><input id="c" class="locked" value="3.00e8" readonly></div>
+<div><label for="h">Planck's constant, h (J·s)</label><input id="h" class="locked" value="6.63e-34" readonly></div>
+</div>
+<button class="primary" onclick="calculate()">Calculate my work</button>
+<button class="secondary" onclick="resetTool()">Reset</button>
+<div id="results" class="result"></div>
 </div>
 </details>
 
@@ -119,46 +176,25 @@ table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid v
 <div class="formula">(a × 10<sup>x</sup>) ÷ (b × 10<sup>y</sup>) = (a/b) × 10<sup>x−y</sup></div>
 <p><strong>Subtract the exponents.</strong></p>
 <div class="rule"><strong>Watch negative exponents:</strong> 8 − (−7) = 8 + 7 = 15.</div>
-<h3>Moving the decimal</h3>
 <ul>
-<li>Move decimal <strong>left</strong> → exponent becomes <strong>one larger</strong>.</li>
-<li>Move decimal <strong>right</strong> → exponent becomes <strong>one smaller</strong>.</li>
+<li>Move decimal <strong>left</strong> → exponent becomes one larger.</li>
+<li>Move decimal <strong>right</strong> → exponent becomes one smaller.</li>
 </ul>
-<p>Proper scientific notation has exactly one nonzero digit to the left of the decimal.</p>
-</div>
-</details>
-
-<details>
-<summary>Interactive calculator — enter your own wavelength</summary>
-<div class="inside">
-<p>Use this section to check your work. Change any input, then click <strong>Calculate</strong>.</p>
-<div class="inputs">
-<div><label for="nm">Wavelength (nm)</label><input id="nm" type="number" step="any" value="520"></div>
-<div><label for="c">Speed of light, c (m/s)</label><input id="c" value="3.00e8"></div>
-<div><label for="h">Planck's constant, h (J·s)</label><input id="h" value="6.63e-34"></div>
-</div>
-<button class="primary" onclick="calculate()">Calculate my work</button>
-<button class="secondary" onclick="resetTool()">Reset</button>
-<div id="results" class="result"></div>
 </div>
 </details>
 
 <details>
 <summary>Complete worked structure</summary>
 <div class="inside">
-<p>Every problem should follow this pattern:</p>
 <div class="formula"><strong>1. CONVERT</strong><br>
-λ(nm) × (1 × 10<sup>−9</sup> m / 1 nm) = λ in meters
-</div>
+λ(nm) × (1 × 10<sup>−9</sup> m / 1 nm) = λ in meters</div>
 <div class="formula"><strong>2. FREQUENCY</strong><br>
 Theory: c = fλ<br>
 Solve for f: f = c/λ<br>
-Numbers: f = (3.00 × 10<sup>8</sup>) ÷ (λ in meters)
-</div>
+Numbers: f = (3.00 × 10<sup>8</sup>) ÷ (λ in meters)</div>
 <div class="formula"><strong>3. ENERGY</strong><br>
 Theory: E = hf<br>
-Numbers: E = (6.63 × 10<sup>−34</sup>) × (calculated frequency)
-</div>
+Numbers: E = (6.63 × 10<sup>−34</sup>) × (calculated frequency)</div>
 <p class="good">If you can write those three sections from memory, you have the basic process down.</p>
 </div>
 </details>
@@ -183,6 +219,20 @@ Numbers: E = (6.63 × 10<sup>−34</sup>) × (calculated frequency)
 </div>
 
 <script>
+const elements = {
+H:{name:"Hydrogen",symbol:"H",lines:[410.17,434.05,486.13,656.28]},
+He:{name:"Helium",symbol:"He",lines:[447.15,471.31,492.19,501.57,587.56,667.82,706.52]},
+Li:{name:"Lithium",symbol:"Li",lines:[460.29,610.36,670.78]},
+Na:{name:"Sodium",symbol:"Na",lines:[568.26,568.82,589.00,589.59,615.42]},
+K:{name:"Potassium",symbol:"K",lines:[404.41,404.72,766.49,769.90]},
+Ca:{name:"Calcium",symbol:"Ca",lines:[422.67,443.50,527.03,612.22,643.91]},
+Sr:{name:"Strontium",symbol:"Sr",lines:[430.54,460.73,640.85,674.68]},
+Ba:{name:"Barium",symbol:"Ba",lines:[455.40,493.41,553.55,614.17]},
+Cu:{name:"Copper",symbol:"Cu",lines:[510.55,515.32,521.82]},
+Hg:{name:"Mercury",symbol:"Hg",lines:[404.66,435.83,546.07,576.96,579.07]},
+Ne:{name:"Neon",symbol:"Ne",lines:[540.06,585.25,588.19,594.48,603.00,607.43,614.31,621.73,626.65,633.44,638.30,640.22,650.65,659.90,692.95,703.24]}
+};
+
 function parseNum(v){
   return Number(String(v).trim().replace(/×/g,'x').replace(/\s/g,'').replace(/x10\^?/i,'e'));
 }
@@ -195,10 +245,9 @@ function sci(x,sig=3){
 }
 function calculate(){
   const nm=parseNum(document.getElementById('nm').value);
-  const c=parseNum(document.getElementById('c').value);
-  const h=parseNum(document.getElementById('h').value);
-  if(!(nm>0)||!(c>0)||!(h>0)){
-    document.getElementById('results').innerHTML="<strong>Please enter positive numbers.</strong>";
+  const c=3.00e8, h=6.63e-34;
+  if(!(nm>0)){
+    document.getElementById('results').innerHTML="<strong>Please enter a positive wavelength.</strong>";
     return;
   }
   const meters=nm*1e-9, f=c/meters, E=h*f;
@@ -217,11 +266,48 @@ function calculate(){
   <span class="answer">${sci(E)} J/photon</span></p>`;
 }
 function resetTool(){
-  document.getElementById('nm').value='520';
-  document.getElementById('c').value='3.00e8';
-  document.getElementById('h').value='6.63e-34';
+  document.getElementById('nm').value='500';
   calculate();
 }
+function initElements(){
+  const select=document.getElementById('elementSelect');
+  select.innerHTML=Object.keys(elements).map(k=>`<option value="${k}">${elements[k].name} (${k})</option>`).join('');
+  select.value='H';
+  selectElement();
+}
+function selectElement(){
+  const key=document.getElementById('elementSelect').value;
+  const el=elements[key];
+  const lineSelect=document.getElementById('lineSelect');
+  lineSelect.innerHTML=el.lines.map((w,i)=>`<option value="${i}">${w.toFixed(2)} nm</option>`).join('');
+  lineSelect.value='0';
+  updateElementDisplay(key,el.lines[0]);
+}
+function selectLine(){
+  const key=document.getElementById('elementSelect').value;
+  const idx=Number(document.getElementById('lineSelect').value);
+  updateElementDisplay(key,elements[key].lines[idx]);
+}
+function updateElementDisplay(key,wavelength){
+  const el=elements[key];
+  document.getElementById('elementCard').innerHTML=`
+    <div class="element-symbol">${el.symbol}</div>
+    <div class="element-name">${el.name}</div>
+    <p><strong>Selected emission wavelength:</strong><br>${wavelength.toFixed(2)} nm</p>
+    <p class="small">Representative emission lines shown: ${el.lines.length}</p>`;
+  const pct=Math.max(0,Math.min(100,(wavelength-380)/(750-380)*100));
+  document.getElementById('spectrumBar').innerHTML=`<div class="marker" style="left:${pct}%"><div class="marker-label">${wavelength.toFixed(2)} nm</div></div>`;
+  let region=wavelength<450?"Violet":wavelength<495?"Blue":wavelength<570?"Green":wavelength<590?"Yellow":wavelength<620?"Orange":"Red";
+  document.getElementById('spectrumText').textContent=`This selected line is in the visible ${region} region.`;
+  const meters=wavelength*1e-9, f=3e8/meters, E=6.63e-34*f;
+  document.getElementById('emissionResult').innerHTML=`
+    <h3>Connect the spectrum to the calculation</h3>
+    <p><strong>1. Wavelength:</strong> ${wavelength.toFixed(2)} nm</p>
+    <p><strong>2. Convert:</strong> ${wavelength.toFixed(2)} nm × (1 × 10<sup>−9</sup> m / 1 nm) = <strong>${sci(meters)} m</strong></p>
+    <p><strong>3. Frequency:</strong> f = c/λ = (3.00 × 10<sup>8</sup>) ÷ (${sci(meters)}) = <strong>${sci(f)} Hz</strong></p>
+    <p><strong>4. Photon energy:</strong> E = hf = (6.63 × 10<sup>−34</sup>) × (${sci(f)}) = <strong>${sci(E)} J/photon</strong></p>`;
+}
+initElements();
 calculate();
 </script>
 </body>
